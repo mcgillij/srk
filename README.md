@@ -1,6 +1,8 @@
-# Screen Relay Kitty
+# Screen Relay terminal viewer
 
 View a Mac desktop from Linux in Kitty or Ghostty. The Mac sends changed pixels over SSH. The viewer renders the stream and forwards keyboard and mouse events.
+
+We verified live video, pixel equality, and mouse control on a Mac. The keyboard fix passes local tests and still needs a live Mac test.
 
 ## Unpack on both machines
 
@@ -21,7 +23,7 @@ cd screen-relay-kitty
 
    The build installs its Homebrew libraries and builds the tiles fork in `$HOME/screen-relay-tiles`. It reuses that directory if a checkout is already there.
 
-3. If the check reports missing permissions, open **System Settings → Privacy & Security**. Enable Terminal in **Screen & System Audio Recording** and **Accessibility**. Quit and reopen Terminal, then run the check again from the extracted folder. [macOS relay notes]
+3. If the check reports missing permissions, open **System Settings → Privacy & Security**. Enable Terminal in **Screen & System Audio Recording** and **Accessibility**. Quit and reopen Terminal, then run the check again from the extracted folder. [macOS relay notes](https://github.com/Gaurav-Gosain/screen-relay/blob/8ec12e1a4683c9edd32c0e8469042486057028ea/docs/content/docs/macos.mdx#grant-permissions)
 4. Enable **Remote Login** under **System Settings → General → Sharing**. Allow the same Mac account that runs the relay. [Apple Remote Login instructions](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac)
 5. Start the relay. Leave the Terminal window open and the Mac awake. Keep a display active. On a MacBook, leave the lid open for the first test.
 
@@ -48,6 +50,6 @@ Substitute the same destination you normally use with `ssh`, such as `mac`. The 
 
 ## Source and tests
 
-The viewer uses a tiles decoder adapted from the fork's test client. [Screen Relay fork source](https://github.com/Gaurav-Gosain/screen-relay/blob/eb8fbf4102a9d5c1314384fb9b97fc3bd2e21d0d/tests/e2e/tiles-client.mjs)
+The viewer uses a tiles decoder adapted from the fork's test client. [Screen Relay fork source](https://github.com/Gaurav-Gosain/screen-relay/blob/8ec12e1a4683c9edd32c0e8469042486057028ea/tests/e2e/tiles-client.mjs)
 
 Run the viewer tests from this folder with `node --test --test-isolation=none client.test.mjs`.

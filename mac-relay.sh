@@ -28,7 +28,7 @@ case "$source_dir" in
     *) die 'SCREEN_RELAY_SOURCE_DIR must be an absolute path.' ;;
 esac
 source_url=https://github.com/Gaurav-Gosain/screen-relay.git
-source_commit=eb8fbf4102a9d5c1314384fb9b97fc3bd2e21d0d
+source_commit=8ec12e1a4683c9edd32c0e8469042486057028ea
 
 if [ "$action" = build ]; then
     command -v brew >/dev/null || die 'Install Homebrew and add it to PATH.'
